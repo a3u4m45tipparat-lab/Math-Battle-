@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>ทฤษฎีกราฟกับเส้นทางท่องเที่ยวเมืองอุดรธานี</title>
+
+<style>
+
+body{
+margin:0;
+font-family:'Prompt',sans-serif;
+background:#eef5ff;
+}
+
+header{
+background:#0b5394;
+color:white;
+padding:30px;
+text-align:center;
+}
+
+nav{
+display:flex;
+justify-content:center;
+gap:15px;
+background:#083763;
+padding:12px;
+flex-wrap:wrap;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+font-weight:bold;
+}
+
+section{
+width:90%;
+max-width:1100px;
+margin:auto;
+margin-top:30px;
+background:white;
+padding:25px;
+border-radius:15px;
+box-shadow:0 0 10px rgba(0,0,0,.1);
+}
+
+.card{
+background:#f7fbff;
+padding:20px;
+border-left:6px solid #0b5394;
+margin-top:15px;
+border-radius:8px;
+}
+
+button{
+background:#0b5394;
+color:white;
+padding:12px 20px;
+border:none;
+border-radius:8px;
+cursor:pointer;
+font-size:16px;
+}
+
+button:hover{
+background:#062d50;
+}
+
+.question{
+margin-top:20px;
+}
+
+footer{
+margin-top:40px;
+background:#083763;
+color:white;
+text-align:center;
+padding:20px;
+}
+
+.correct{
+color:green;
+font-weight:bold;
+}
+
+.wrong{
+color:red;
+font-weight:bold;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<h1>การวิเคราะห์และออกแบบเส้นทางท่องเที่ยวเมืองอุดรธานี</h1>
+
+<h3>ด้วยทฤษฎีกราฟ (Graph Theory)</h3>
+
+</header>
+
+<nav>
+
+<a href="#intro">บทนำ</a>
+
+<a href="#graph">ทฤษฎีกราฟ</a>
+
+<a href="#zone">โซนท่องเที่ยว</a>
+
+<a href="#weight">น้ำหนัก</a>
+
+<a href="#analysis">วิเคราะห์</a>
+
+<a href="#algorithm">ขั้นตอนวิธี</a>
+
+<a href="#quiz">แบบทดสอบ</a>
+
+</nav>
+
+<section id="intro">
+
+<h2>บทนำ</h2>
+
+<div class="card">
+
+โครงงานนี้ใช้แนวคิด "ทฤษฎีกราฟ" เพื่อวางแผนเส้นทางท่องเที่ยวจังหวัดอุดรธานี
+โดยแบ่งเป็น 3 โซน และวิเคราะห์เส้นทางที่เหมาะสมที่สุด
+
+</div>
+
+</section>
+
+<section id="graph">
+
+<h2>ทฤษฎีกราฟ</h2>
+
+<div class="card">
+
+<b>Vertex (จุดยอด)</b> คือ สถานที่ท่องเที่ยว
+
+<br><br>
+
+<b>Edge (เส้นเชื่อม)</b> คือ ถนนหรือเส้นทาง
+
+<br><br>
+
+<b>Weight</b> คือ เวลาเดินทาง
+
+</div>
+
+</section>
+
+<section id="zone">
+
+<h2>โซนท่องเที่ยว</h2>
+
+<div class="card">
+
+<h3>Zone A</h3>
+
+A วีทีแหนมเนือง<br>
+
+B หลงป่า คาเฟ่<br>
+
+C พิพิธภัณฑ์เมืองอุดรธานี<br>
+
+D หนองประจักษ์
+
+</div>
+
+<div class="card">
+
+<h3>Zone B</h3>
+
+A เซ็นทรัลอุดรธานี<br>
+
+B ศาลเจ้าปู่ย่า<br>
+
+C ยูดีทาวน์<br>
+
+D ตลาดนัดรถไฟ
+
+</div>
+
+<div class="card">
+
+<h3>Zone C</h3>
+
+A บ้านเชียง<br>
+
+B ทะเลบัวแดง<br>
+
+C สวนลิง<br>
+
+D ร้านทันหนาว
+
+</div>
+
+</section>
+
+<section id="weight">
+
+<h2>ตัวอย่างน้ำหนักของกราฟ</h2>
+
+<div class="card">
+
+Zone A
+
+<ul>
+
+<li>A-B = 2 นาที</li>
+
+<li>A-C = 2 นาที</li>
+
+<li>A-D = 5 นาที</li>
+
+<li>B-C = 8 นาที</li>
+
+<li>B-D = 7 นาที</li>
+
+<li>C-D = 8 นาที</li>
+
+</ul>
+
+</div>
+
+</section>
+
+<section id="analysis">
+
+<h2>การวิเคราะห์</h2>
+
+<div class="card">
+
+กราฟทั้งสามเป็นปัญหาแบบ
+
+<h2 style="color:green">Hamilton Path</h2>
+
+เดินผ่านทุกจุดเพียงครั้งเดียว
+ไม่ย้อนกลับจุดเดิม
+
+</div>
+
+</section>
+
+<section id="algorithm">
+
+<h2>ขั้นตอนวิธี</h2>
+
+<ol>
+
+<li>กำหนดโซน</li>
+
+<li>เลือกสถานที่</li>
+
+<li>หาระยะเวลา</li>
+
+<li>สร้างกราฟ</li>
+
+<li>คำนวณเส้นทาง</li>
+
+<li>เลือกเส้นทางที่เหมาะสม</li>
+
+</ol>
+
+</section>
+
+<section id="quiz">
+
+<h2>แบบทดสอบ</h2>
+
+<div class="question">
+
+<p>1. จุดยอด(Vertex) หมายถึงอะไร</p>
+
+<input type="radio" name="q1" value="0">ถนน<br>
+
+<input type="radio" name="q1" value="1">สถานที่ท่องเที่ยว<br>
+
+<input type="radio" name="q1" value="0">เวลา<br>
+
+</div>
+
+<div class="question">
+
+<p>2. Weight คืออะไร</p>
+
+<input type="radio" name="q2" value="1">เวลาเดินทาง<br>
+
+<input type="radio" name="q2" value="0">จำนวนคน<br>
+
+<input type="radio" name="q2" value="0">ชื่อสถานที่<br>
+
+</div>
+
+<div class="question">
+
+<p>3. กราฟในใบงานเป็นปัญหาประเภทใด</p>
+
+<input type="radio" name="q3" value="1">Hamilton Path<br>
+
+<input type="radio" name="q3" value="0">Euler Circuit<br>
+
+<input type="radio" name="q3" value="0">Tree<br>
+
+</div>
+
+<br>
+
+<button onclick="check()">ตรวจคำตอบ</button>
+
+<h2 id="score"></h2>
+
+</section>
+
+<footer>
+
+จัดทำเพื่อการเรียนรู้วิชาทฤษฎีกราฟ
+
+</footer>
+
+<script>
+
+function check(){
+
+let score=0;
+
+document.querySelectorAll("input[type=radio]:checked").forEach(x=>{
+
+score+=Number(x.value);
+
+});
+
+document.getElementById("score").innerHTML="คะแนน "+score+" / 3";
+
+}
+
+</script>
+
+</body>
+
+</html>
